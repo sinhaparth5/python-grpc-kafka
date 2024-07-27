@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package kafkaservice;
+
+service KafkaService {
+    rpc ProduceMessage (ProduceRequest) returns (ProduceResponse);
+    rpc ConsumeMessages (ConsumeRequest) returns (stream ConsumeResponse);
+}
+
+message ProduceRequest {
+    string topic = 1;
+    string message = 2;
+}
+
+message ProduceResponse {
+    bool success = 1;
+}
+
+message ConsumeRequest {
+    string topic = 1;
+}
+
+message ConsumeResponse {
+    string message = 1;
+}
