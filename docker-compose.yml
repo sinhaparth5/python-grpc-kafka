@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   zookeeper:
     restart: always
@@ -44,7 +42,7 @@ services:
   grpc-client:
     build: 
       context: ./grpc-client
-      dockerfile: ./grpc-client/client.dockerfile
+      dockerfile: server.dockerfile
     container_name: grpc_client
     depends_on:
       - grpc-server
