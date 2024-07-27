@@ -32,7 +32,7 @@ services:
   grpc-server:
     build:
       context: ./grpc-server
-      dockerfile: ./grpc-server/server.dockerfile
+      dockerfile: server.dockerfile
     container_name: grpc-server
     depends_on:
       - kafka
@@ -42,7 +42,7 @@ services:
   grpc-client:
     build: 
       context: ./grpc-client
-      dockerfile: server.dockerfile
+      dockerfile: client.dockerfile
     container_name: grpc_client
     depends_on:
       - grpc-server
